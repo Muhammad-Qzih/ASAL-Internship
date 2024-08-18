@@ -1,0 +1,229 @@
+.text .item, .text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container input,
+.form-container select, .form-container {
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.form-container button, .form-container input,
+.form-container select {
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --main-color: $main-color;
+  --main-color-alt: $main-color-alt;
+  --main-transition-duration: $main-transition-duration;
+  --spacing-small: $spacing-small;
+  --font-size-small: $font-size-small;
+  --spacing-medium: $spacing-medium;
+  --font-size-medium: $font-size-medium;
+}
+
+body {
+  font-family: "Cairo", "sans-serif";
+  background-color: #f4f4f4;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.reservation-section {
+  margin-top: 200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+  gap: 0;
+  width: 80%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  background-color: white;
+  margin-bottom: 100px;
+  min-width: 100%;
+}
+.reservation-section::after {
+  content: "";
+  background-color: #1787e0;
+  width: 200px;
+  height: calc(100% + 100px);
+  top: -50px;
+  position: absolute;
+  right: -34px;
+  z-index: -1;
+}
+.reservation-section::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 300px;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: rotate(-90deg);
+  z-index: -2;
+}
+
+.form-container {
+  padding: 30px;
+}
+.form-container h1 {
+  color: #2196f3;
+}
+.form-container input,
+.form-container select {
+  margin-bottom: 10px;
+  border: 1px solid #d5d2d2;
+  border-radius: 5px;
+  outline: none;
+}
+.form-container label {
+  display: block;
+  margin: 10px 0 5px;
+}
+.form-container input[type=checkbox],
+.form-container input[type=radio] {
+  width: auto;
+  margin-right: 10px;
+}
+.form-container fieldset {
+  border: none;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+.form-container legend {
+  font-weight: bold;
+}
+.form-container button {
+  padding: 10px;
+  border: none;
+  background-color: #2196f3;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.form-container button:hover {
+  background-color: #1787e0;
+}
+
+.text {
+  position: relative;
+  background-image: url("../images/travel.jpg");
+  background-size: cover;
+  background-position: center;
+  flex-direction: column;
+  color: white;
+  padding: 40px;
+  box-sizing: border-box;
+}
+.text::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+}
+.text .item {
+  margin-bottom: 20px;
+  overflow: hidden;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+.text .item .icon {
+  color: white;
+  z-index: 1;
+}
+.text .item .text-item {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  padding: 20px;
+  margin-left: 50px;
+  transition: 0.3s;
+  line-height: 1.2;
+}
+.text .item .text-item:hover {
+  color: black;
+  background-color: #eee;
+  transform: scale(1.1);
+}
+.text .item .text-item::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  top: 0;
+  right: -10px;
+  background-color: #2196f3;
+}
+.text .item .text-item::before {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: -44px;
+  top: 50%;
+  margin-top: -20px;
+  border-width: 20px;
+  border-style: solid;
+  border-color: transparent #2196f3 transparent transparent;
+}
+
+@media (max-width: 992px) {
+  .reservation .container .reservation-section {
+    grid-template-columns: 1fr;
+  }
+  .heading-1 {
+    font-size: 25px;
+    text-align: center;
+  }
+  .text .item {
+    flex-direction: column;
+  }
+  .text .item .text-item {
+    min-width: 100%;
+    text-align: center;
+    margin: 10px 0;
+  }
+  .item .icon {
+    color: #2196f3;
+  }
+  .text .item .text-item::before,
+  .text .item .text-item::after,
+  .reservation .reservation-section::after,
+  .reservation-section::before {
+    content: none;
+  }
+}/*# sourceMappingURL=fromStyle.css.map */

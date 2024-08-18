@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservation Page</title>
+  <!-- styles -->
+  <link rel="stylesheet" href="../css/master.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+  <section class="reservation">
+
+    <div class="container">
+      <div class="reservation-section">
+        <div class="form-container">
+          <h1 class="heading-1">Travel reservation form</h1>
+          <form action="">
+            <label for="full-name">Full Name*</label>
+            <input type="text" id="full-name" placeholder="First Name Last Name" required
+              pattern="[A-Za-z]{3,} [A-Za-z]{3,}">
+
+            <label for="email">Eamil*</label>
+            <input type="email" id="email" placeholder="email@example.com" required
+              pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+              title="Please enter a first name and last name, each with at least 3 characters.">
+
+            <label for="tour-package">Select Tour Package*</label>
+            <select id="tour-package" required>
+              <option value="">Select Package</option>
+              <option value="goa">Goa</option>
+              <option value="goa2">Goa2</option>
+              <option value="goa3">Goa3</option>
+            </select>
+
+            <label for="arrival-date">Arrival Date*</label>
+            <input type="date" id="arrival-date" required>
+
+            <label for="number-of-persons">Number of Persons*</label>
+            <input type="number" id="number-of-persons" min="1" required>
+
+            <fieldset>
+              <legend>What would you want to avail?*</legend>
+              <label><input type="checkbox" name="services" value="boarding"> Boarding</label>
+              <label><input type="checkbox" name="services" value="fooding"> Fooding</label>
+              <label><input type="checkbox" name="services" value="sightseeing"> Sightseeing</label>
+            </fieldset>
+
+
+            <label for="coupon-code">Discount Coupon Code</label>
+            <input type="text" id="coupon-code" placeholder="Enter code">
+
+            <fieldset>
+              <legend>Terms and Conditions*</legend>
+              <label><input type="radio" name="terms" value="agree" required> I agree</label>
+              <label><input type="radio" name="terms" value="disagree" required> I disagree</label>
+            </fieldset>
+
+            <button type="submit">Complete Reservation</button>
+          </form>
+
+        </div>
+
+        <div class="text">
+          <div class="item">
+            <i class="far fa-gem fa-3x icon"></i>
+            <p class="text-item">Experience unparalleled luxury with our premium travel packages. From five-star
+              accommodations to personalized services, every detail is crafted to offer you an unforgettable journey.
+
+            </p>
+          </div>
+
+          <div class="item">
+            <i class="fas fa-globe-asia fa-3x icon"></i>
+            <p class="text-item">Explore the world with our extensive range of global travel options. From the bustling
+              streets of Tokyo to the serene landscapes of the Swiss Alps, we bring you the best of what each
+              destination has to offer.
+            </p>
+
+          </div>
+
+          <div class="item">
+            <i class="fas fa-magic fa-3x icon"></i>
+            <p class="text-item">Your journey, your way. Our custom travel planning service allows you to design the
+              perfect trip that reflects your interests, style, and pace.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+
+</html>

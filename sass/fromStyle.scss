@@ -1,0 +1,288 @@
+// Variables
+$main-color: #2196f3;
+$main-color-alt: #1787e0;
+$main-transition-duration: 0.3s;
+$spacing-small: 10px;
+$font-size-small: 10px;
+$spacing-medium: 20px;
+$font-size-medium: 20px;
+
+// Mixins
+@mixin transition($duration) {
+  transition: $duration;
+}
+
+@mixin box-shadow($h-offset, $v-offset, $blur, $color) {
+  box-shadow: $h-offset $v-offset $blur $color;
+}
+
+@mixin background-overlay($color, $opacity) {
+  background-color: rgba($color, $opacity);
+}
+
+@mixin responsive-width($sm, $md, $lg) {
+  @media (min-width: 768px) {
+    width: $sm;
+  }
+
+  @media (min-width: 992px) {
+    width: $md;
+  }
+
+  @media (min-width: 1200px) {
+    width: $lg;
+  }
+}
+
+// Placeholders
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%box {
+  padding: $spacing-small;
+  box-sizing: border-box;
+}
+
+%full-width {
+  width: 100%;
+}
+
+// Global Styles
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --main-color: $main-color;
+  --main-color-alt: $main-color-alt;
+  --main-transition-duration: $main-transition-duration;
+  --spacing-small: $spacing-small;
+  --font-size-small: $font-size-small;
+  --spacing-medium: $spacing-medium;
+  --font-size-medium: $font-size-medium;
+}
+
+body {
+  font-family: "Cairo", "sans-serif";
+  background-color: #f4f4f4;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include responsive-width(750px, 970px, 1170px);
+}
+
+// Reservation Section
+.reservation-section {
+  margin-top: 200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+  gap: 0;
+  width: 80%;
+  @include box-shadow(0, 0, $spacing-small, rgba(0, 0, 0, 0.1));
+  position: relative;
+  background-color: white;
+  margin-bottom: 100px;
+  min-width: 100%;
+
+  &::after {
+    content: "";
+    @include background-overlay($main-color-alt, 1);
+    width: 200px;
+    height: calc(100% + 100px);
+    top: -50px;
+    position: absolute;
+    right: -34px;
+    z-index: -1;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 300px;
+    height: 300px;
+    @include background-overlay(black, 0.6);
+    transform: rotate(-90deg);
+    z-index: -2;
+  }
+}
+
+// Form Container
+.form-container {
+  @extend %box;
+  padding: 30px;
+
+  h1 {
+    color: $main-color;
+  }
+
+  input,
+  select {
+    @extend %full-width;
+    @extend %box;
+    margin-bottom: $spacing-small;
+    border: 1px solid #d5d2d2;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  label {
+    display: block;
+    margin: $spacing-small 0 5px;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: auto;
+    margin-right: $spacing-small;
+  }
+
+  fieldset {
+    border: none;
+    margin-bottom: $spacing-small;
+    margin-top: $spacing-medium;
+  }
+
+  legend {
+    font-weight: bold;
+  }
+
+  button {
+    @extend %full-width;
+    padding: $spacing-small;
+    border: none;
+    background-color: $main-color;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: $font-size-medium;
+
+    &:hover {
+      background-color: $main-color-alt;
+    }
+  }
+}
+
+// Text Section
+.text {
+  @extend %flex-center;
+  position: relative;
+  background-image: url("../images/travel.jpg");
+  background-size: cover;
+  background-position: center;
+  flex-direction: column;
+  color: white;
+  padding: 40px;
+  box-sizing: border-box;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    @include background-overlay(black, 0.6);
+    width: 100%;
+    height: 100%;
+  }
+
+  .item {
+    @extend %flex-center;
+    margin-bottom: $spacing-medium;
+    overflow: hidden;
+    justify-content: space-evenly;
+    padding: $spacing-medium;
+
+    .icon {
+      color: white;
+      z-index: 1;
+    }
+
+    .text-item {
+      position: relative;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0)
+      );
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      @include box-shadow(0, 8px, 32px, rgba(0, 0, 0, 0.37));
+      padding: $spacing-medium;
+      margin-left: 50px;
+      @include transition($main-transition-duration);
+      line-height: 1.2;
+
+      &:hover {
+        color: black;
+        background-color: #eee;
+        transform: scale(1.1);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 6px;
+        height: 100%;
+        top: 0;
+        right: -10px;
+        background-color: $main-color;
+      }
+
+      &::before {
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        left: -44px;
+        top: 50%;
+        margin-top: -20px;
+        border-width: $spacing-medium;
+        border-style: solid;
+        border-color: transparent $main-color transparent transparent;
+      }
+    }
+  }
+}
+
+// Media Queries
+@media (max-width: 992px) {
+  .reservation .container .reservation-section {
+    grid-template-columns: 1fr;
+  }
+
+  .heading-1 {
+    font-size: calc($font-size-medium + 5px);
+    text-align: center;
+  }
+
+  .text .item {
+    flex-direction: column;
+  }
+
+  .text .item .text-item {
+    min-width: 100%;
+    text-align: center;
+    margin: $spacing-small 0;
+  }
+
+  .item .icon {
+    color: $main-color;
+  }
+
+  .text .item .text-item::before,
+  .text .item .text-item::after,
+  .reservation .reservation-section::after,
+  .reservation-section::before {
+    content: none;
+  }
+}
