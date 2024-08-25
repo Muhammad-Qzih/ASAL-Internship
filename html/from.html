@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shapes Form</title>
+  <link rel="stylesheet" href="../css/form.css">
+</head>
+
+<body>
+  <section class="section-shape">
+    <div class="container">
+
+      <form>
+        <h1 class="heading-1">Make Shape Form</h1>
+
+        <div class="form-row">
+          <label for="shapes">Choose a shape:</label>
+          <select id="shapes" name="shapes">
+            <option value="circle">Circle</option>
+            <option value="square">Square</option>
+            <option value="triangle">Triangle</option>
+            <option value="rectangle">Rectangle</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="colors">Choose a color:</label>
+          <select id="colors" name="colors">
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="yellow">Yellow</option>
+            <option value="black">Black</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="numbers">Enter number of shapes:</label>
+          <input id="numbers" name="numbers" type="text" pattern="^[1-5]$" title="Please enter a number between 2 and 5"
+            value="0" required />
+        </div>
+
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+  <script src="../js/form.js"></script>
+</body>
+
+</html>
