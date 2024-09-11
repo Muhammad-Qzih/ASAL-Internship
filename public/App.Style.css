@@ -1,0 +1,23 @@
+button {
+  height: 60px !important;
+  border-radius: 50% !important;
+  font-weight: normal !important;
+  max-width: 60px;
+  border: none;
+  box-shadow: 0 1px 1px 1px rgb(226, 226, 226) !important;
+}
+
+button:focus {
+  outline: none !important;
+}
+
+.container-parent {
+  max-width: 400px !important;
+  background-color: #d2d2d2 !important;
+  padding: 20px;
+  border: 1px solid #767676;
+  border-radius: 40px;
+}
+.card-result {
+  width: 100%;
+}
